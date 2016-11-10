@@ -2,7 +2,7 @@ beautifulsoup4==4.3.2
 cffi==0.8.6
 cssselect==0.9.1
 decorator==4.0.10
-Django==1.7.5
+Django==1.10.3
 django-hitcount==1.2.2
 django-taggit==0.21.2
 gunicorn==19.6.0
