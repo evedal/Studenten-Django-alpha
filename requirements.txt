@@ -16,3 +16,7 @@ pyOpenSSL==0.14
 pyparsing==2.0.3
 python-dateutil==2.4.0
 pytz==2014.10
+dj-database-url==0.4.1
+gunicorn==19.6.0
+psycopg2==2.6.2
+whitenoise==3.2
