@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title></title>
+{% load staticfiles %}
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'hjem/css/header.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'hjem/css/footer.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/login.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/register.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/forgot.css' %}" />
+
+<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="{% static 'hjem/javascript/headerFollow.js' %}"></script>
+    <script src="{% static 'hjem/javascript/loginPopup.js' %}"></script>
+    <script src="{% static 'hjem/javascript/pictureSlide.js' %}"></script>
+
+</head>
+<body>
+{% include "hjem/header.html" %}
+
+
+
+<div id="wrapper">
+    {% block content %}
+    {% endblock %}
+	<script type="text/javascript">
+	for (var i = 0; i < 50; i++) {
+		document.write("<br>")
+	};
+	</script>
+
+
+</div>
+
+{% include "hjem/footer.html" %}
+</body>
+
+</html>

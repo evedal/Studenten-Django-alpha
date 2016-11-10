@@ -1,0 +1,208 @@
+body{
+	margin:0px 0px 0px 0px;
+	font-family: "Playfair Display","Nirmala UI", helvetica, "open sans", arial;
+}
+header{
+	font-family: "Nirmala UI", helvetica, "open sans", arial;
+	width: 100%;
+	float: left;
+}
+a{
+	text-decoration: none;
+	display: inline-block;
+	color: white;
+	text-transform: uppercase;
+}
+.headwrap{
+	position: relative;
+	margin: 0 auto;
+	width: 1015px;
+}
+.overhead{
+	height: 100px;
+	position: absolute;
+	top: 0px;
+	background-color: #443266;
+	background-size: 100%;
+	margin: 0px auto;
+}
+.overheadwrap{
+	text-align: center;
+	margin: 0px auto;
+	min-width: 1015px;
+	color: white;
+	text-shadow: 1px 1px black;
+	letter-spacing: 1px;
+
+}
+.logo{
+	margin-left: 100px;
+	margin-top: 15px;
+	margin-right: 300px;
+	float: left;
+}
+.logohjelp{
+	float: right;
+	margin-top: 75px;
+
+}
+.headnav{
+	height: 50px;
+	position: absolute;
+	top:100px;
+	background-color: #443266;
+	z-index: 100;
+	max-width: 100%;
+}
+.navwrap{
+	min-width: 1015px;
+	margin: 0px auto;
+	color: white;
+	text-align: center;
+	text-shadow: 1px 1px black;
+	letter-spacing: 1px;
+	text-decoration: none;
+	font-style: normal;
+}
+.navlogincont{
+	float: right;
+	position: relative;
+	bottom: 28px;
+}
+.logincontainer{
+	width: 200px;
+	height: 180px;
+	float: right;
+	margin-top: 36px;
+	left: 75px;
+	font-size: 11px;
+	position: relative;
+	font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+	background-color: white;
+	padding: 9px 11px;
+	background: white;
+	border: 1px solid #c5c5c5;
+	-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+	-moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+	box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 15px;
+	display: none;
+	transition: all 0.8s;
+	z-index: 1000;
+	color: black;
+}
+.inputbox{
+	width: 180px;
+	margin: 0px auto;
+	margin-left: 7px;
+	margin-top: 15px;
+}
+.textfield{
+	height: 20px;
+	border: 1px solid #cccccc;
+}
+.rememberme{
+	width:20px;
+	margin-right: 10px;
+	border-radius: 15px;
+}
+.remembermetext{
+	position: relative;
+	bottom:2px;
+	font-size: 14px;
+	text-transform: initial;
+	text-shadow: none;
+}
+.submitbutton{
+	color: white;
+	font-weight: bold;
+	height: 40px;
+	background-color: #443266;
+}
+.namepass{
+	text-align: left;
+	position: relative;
+	text-transform: uppercase;
+}
+input[type="text"] {
+    width: 100px;
+}
+.namecont{
+	float: left;
+}
+.passcont{
+	float: right
+}
+.logintext{
+	text-transform: initial;
+	float: right;
+	height: 40px;
+	margin: 0px;
+	color: #ffc ;
+	display: inline;
+	cursor: pointer;
+}
+.logofollow{
+	float: left;
+	margin-left: 50px;
+	font-size: 24px;
+	margin-top: 5px;
+	text-transform: uppercase;
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.navtext{
+	width: 70%;
+	padding-top: 12px;
+	font-size: 16px;
+	margin: 0px auto;
+}
+.navbut{
+	margin-left: 25px;
+	margin-right: 25px;
+}
+#current{
+	border-bottom: solid 2px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.navbut:hover{
+	color: #aeada9;
+}
+.underheader{
+	height: 50px;
+	background-color: #f7f5ed;
+	color: black;
+	position: absolute;
+	top: 150px; 
+	z-index: 90;
+}
+.headnavShow{
+	position: fixed;
+	top:0px;
+}
+.underheadercontent{
+	width: 1015px;
+	margin: 0px auto;
+	letter-spacing: 1px;
+}
+.mediaskrift{
+    margin: auto 0;
+    margin-right: 20px;
+
+}
+.icons{
+	height:30px;
+	float: right;
+	margin-top: 10px; 
+}
+.loginshow{
+	display: block;
+}
+.icon{
+	width: 30px;
+	margin-left: 20px;
+}

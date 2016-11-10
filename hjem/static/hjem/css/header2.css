@@ -1,0 +1,176 @@
+ul {
+	text-align: left;
+	list-style: outside none none;
+	position: relative;
+}
+header{
+    height: 200px;
+    width:100%;
+	font-family: "Nirmala UI", helvetica, "open sans", arial;
+    margin-bottom: 100px;
+
+}
+html{
+  margin: 0px 0px 0px 0px;
+    font-family: "Nirmala UI", helvetica, arial;
+    min-height: 100%;
+}
+body{
+    margin: 0px 0px 0px 0px;
+    font-family: "'PT Serif W01 Book',Georgia,Arial,Helvetica,Tahoma,Lucida Sans,verdana,sans-serif;
+    height: 100%;
+}
+a {
+    text-decoration: none;
+}
+.headerwrap{
+    width: 100%;
+    background-color: #443266;
+    position: absolute;
+    top:0px;
+}
+.header{
+    width: 1015px;
+    margin: 0 auto;
+}
+.overheadwrap{
+    height: 100px;
+    top:0;
+}
+@media screen and (max-width: 1015px) {
+    .headscroll{
+        position: fixed !important;
+	    top:0px !important;
+        display: block;
+    }
+    .underheadbg{
+        display: none;
+    }
+    .overheadwrap{
+        display: none;
+    }
+    .pictureCont{
+        margin-top: 0 !important;
+    }
+    header {
+        height: 50px;
+    }
+    .navbut{
+        margin-left: 10px!important;
+        margin-right: 10px!important;
+    }
+    .logintext{
+        margin-left: 60px !important;
+    }
+}
+.current{
+    border-bottom: solid 2px;
+}
+#headnav{
+    max-width: 100%;
+}
+.logo {
+    margin-left: 100px;
+    margin-top: 15px;
+}
+.headwrap{
+    height: 50px;
+}
+.headnavShow{
+	position: fixed !important;
+	top:0px !important;
+}
+.headscroll{
+    width: 100%;
+    position: absolute;
+    top:100px;
+    background-color: #443266;
+    z-index: 1;
+}
+.underheadbg{
+    background: #f7f5ed;
+    height: 50px;
+    min-width: 1015px;
+    position: absolute;
+    top:150px;
+    width: 100%;
+    opacity: 0;
+}
+.underheadwrap{
+    width: 1015px;
+    margin: 0 auto;
+    height: 50px;
+
+}
+.navtext{
+	width: 70%;
+	margin: 0px auto;
+    display: inline-block;
+    text-align: center;
+    text-shadow: 1px 1px black;
+	letter-spacing: 1px;
+    overflow: hidden;
+    max-height: 100%;
+
+}
+.navbut{
+    margin-left: 25px;
+	margin-right: 25px;
+    text-transform: uppercase;
+    color: white;
+}
+.navbut:hover{
+	color: #aeada9;
+}
+
+.current{
+	border-bottom: solid 2px!important;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.navtext{
+    width: 100%;
+	padding-top: 15px;
+	font-size: 16px;
+	margin: 0px auto;
+}
+.logintext{
+    text-transform: none;
+    margin-left: 100px;
+}
+.icons{
+    display: inline-flex;
+    float: right;
+    margin-right: 2%;
+}
+.icon{
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+}
+.icon:hover{
+    -ms-transform: scale(1.2); /* IE 9 */
+    -webkit-transform: scale(1.2); /* Safari */
+    transform: scale(1.2);
+    transition: all 0.2s ease-in-out;
+}
+.mediaskrift{
+    margin:0px 20px;
+    margin-top: 13px;
+}
+textarea{
+    font-family: "Nirmala UI", helvetica, "open sans", arial;
+    font-size: 16px;
+}
+input{
+    font-family: "Nirmala UI", helvetica, "open sans", arial;
+    font-size: 16px;
+}
+button{
+    font-family: "Nirmala UI", helvetica, "open sans", arial;
+    font-size: 16px;
+}
+select{
+    font-family: "Nirmala UI", helvetica, "open sans", arial;
+    font-size: 16px;
+}

@@ -1,0 +1,112 @@
+{% extends "hjem/base.html" %}
+{% load static %}
+{% block title %}Hjem{% endblock %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'hjem/css/body.css' %}" />
+    <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="http://rateyo.fundoocode.ninja/bower_components/jquery-rateyo/min/jquery.rateyo.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        {% for utested in utesteder.iterator %}
+        $(".stars{{ forloop.counter }}").rateYo({
+            rating: {{ utested.hScore }},
+            fullStar: false,
+            ratedFill: "#794788",
+            normalFill: "#f2eee0",
+            readOnly: true
+        });
+        {% endfor %}
+
+    });
+    </script>
+{% endblock %}
+
+{% block content %}
+<div class="homewrapper">
+	<div class="pictureCont">
+		<img class="arrowleft" src="{% static "hjem/img/arrow.png" %}" alt="Left Arrow"/>
+		<img class="arrowrigth" src="{% static "hjem/img/arrowright.png" %}" alt="Right Arrow"/>
+		<div class="articleNav">
+			<a class="navbutton"></a>
+			<a class="navbutton"></a>
+			<a class="navbutton"></a>
+			<a class="navbutton"></a>
+		</div>
+		<ul class="pictureslide" id="pictureslide">
+            {% for article in articles.iterator %}
+			<a href="{% url 'blog.views.article' article.pk %}" class="picturelink">
+				<img class="mainPhoto" src="{{ article.image.url }}" alt="Article Name">
+				<div class="picturetext">
+					<h2 class="mainHead">{{ article.title }}</h2>
+					<h6 class ="underHead">{{ article.description }}</h6>
+				</div>
+			</a>
+            {% endfor %}
+		</ul>
+	</div>
+	<h5 class="textBreak">
+		<div class="leftborderhead"></div>
+		<span class="utestedhead">Utesteder</span>
+		<div class="rightborderhead"></div>
+
+	</h5>
+	<div class="gridUtested">
+        <div class="bordertop1"></div>
+        <div class="bordertop1 borderrightmargin"></div>
+        <div class="bordertop1 borderrightermargin"></div>
+        <div class="bordertop1 bordercentermargin"></div>
+        <div class="bordertop1 bordercentermargin borderrightmargin"></div>
+        <div class="bordertop1 bordercentermargin borderrightermargin"></div>
+        <div class="bordertop1 borderbotmargin"></div>
+        <div class="bordertop1 borderbotmargin borderrightmargin"></div>
+        <div class="bordertop1 borderbotmargin borderrightermargin"></div>
+
+        <div class="bordertop1 mobile borderbot1margin"></div>
+        <div class="bordertop1 mobile borderbot1margin borderrightmargin"></div>
+        <div class="bordertop1 mobile borderbot2margin"></div>
+        <div class="bordertop1 mobile borderbot3margin"></div>
+        <div class="bordertop1 mobile borderbot4margin"></div>
+
+
+
+        <div class="borderleft1"></div>
+        <div class="borderleft1 borderleftmargin"></div>
+        <div class="borderleft1 borderleftermargin"></div>
+        <div class="borderleft1 borderlefter2margin"></div>
+        <div class="borderleft1 borderlefter3margin"></div>
+        <div class="borderleft1 borderlefter4margin"></div>
+
+        <div class="borderleft1 bordermidmargin"></div>
+        <div class="borderleft1 borderleftmargin bordermidmargin"></div>
+        <div class="borderleft1 bordermidrightmargin"></div>
+        <div class="borderleft1 borderleftmargin bordermidrightmargin"></div>
+        <div class="borderleft1 borderrmargin"></div>
+        <div class="borderleft1 borderleftmargin borderrmargin"></div>
+
+        <div class="borderleft1  borderleftermargin bordermidmargin"></div>
+        <div class="borderleft1 borderlefter2margin bordermidmargin"></div>
+        <div class="borderleft1 borderlefter3margin bordermidmargin"></div>
+        <div class="borderleft1 borderlefter4margin bordermidmargin"></div>
+
+        <div class="borderleft1 borderleftermargin bordermidrightmargin"></div>
+
+        {% for utested in utesteder %}
+        <a class="utestedCont grow" href="/utesteder/{{ utested.pk }}/">
+            <div class="utestedcontent">
+                <h4>{{ utested.name }}</h4>
+                <img class="utestedBilde" src="{{ utested.image.url }}" alt="Three Lions"/>
+                <p class="description">{{ utested.description }}</p>
+                <div class="stjerner">
+                    <div id="rateYo" class="jq-ry-container stars{{ forloop.counter }}"></div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+        <div class="bottom_notifyer"></div>
+	</div>
+</div>
+
+
+
+{% endblock %}

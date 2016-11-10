@@ -1,0 +1,106 @@
+.firstname_input{
+    width: 350px;
+    height: 40px;
+    padding:6px 12px;
+    margin: 10px 50px;
+    font-size: 20px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+.profile_edit_wrapper button{
+    height: 35px;
+    border: 1px solid #443266;
+    border-radius: 2px;
+    background: white;
+    cursor: pointer;
+}
+.profile_edit_wrapper{
+    width: 70%;
+    margin: 20px auto;
+    height: 80px;
+}
+.profiletextwrap {
+    width: 1015px;
+    margin: 0px auto;
+    display: block;
+    max-width: 100%;
+    left:0;
+    right:0;
+    height:70%;
+
+}
+.profile_logout_button{
+    height: 50px;
+    width: 200px;
+    background: white;
+    border:2px solid #443266;
+    border-radius: 2px;
+    font-size: 20px;
+    margin: 60px auto;
+    cursor: pointer;
+    display: block;
+}
+.firsname_label{
+    margin-left: 20px;
+    width: 70px;
+    display: inline-block;
+}
+.profile_edit_bg:hover{
+    opacity: 0.2;
+}
+.profile_edit_bg{
+    cursor: pointer;
+    background: black;
+    z-index: 1;
+    width: 550px;
+    position: absolute;
+    height: 80px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+
+}
+.profile_edit_wrapper{
+}
+.leftborderhead{
+	position: relative;
+	width: 35%;
+	left: 0px;
+	top: 27px;
+	border-top: 1px solid #443266;
+    margin-left: 5%;
+}
+.loginhead{
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 52px;
+	text-transform: uppercase;
+	color: #000;
+	letter-spacing: 1px;
+	text-align: center;
+	margin: 0 auto;
+	position: relative;
+    width: 100px;
+}
+.rightborderhead{
+	position: relative;
+	width: 35%;
+	left:60%;
+	bottom: 24px;
+	border-top: 1px solid #443266;
+    margin-right: 5%;
+}
+.error_message{
+    text-align: center;
+}
+.pass_hidden{
+    display: none;
+}
+.label_hidden{
+    display: none;
+}
+.save_edit_button{
+    display: none;
+}
+.pass_form{
+    height: auto;
+}

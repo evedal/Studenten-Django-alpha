@@ -1,0 +1,479 @@
+
+#sidebarUtesteder{
+	margin-top: 20px;
+	padding: 0px 0px 0px 0px;
+	float: left;
+	color: black;
+	text-align: center;
+	width: 100%;
+	position: relative;
+}
+
+.borderdiv{
+    float: right;
+}
+.borderdiv:after{
+    content:"";
+    min-height: 900px;
+    width: 1px;
+    position: absolute;
+    display: block;
+    background-image: linear-gradient(#794788 80%, transparent 0%);
+    background-size: 1px 320px;
+    background-repeat: repeat-y;
+}
+.sidebar{
+	width: 250px;
+	min-height: 900px;
+	float: left;
+	text-align: center;
+}
+.categorySidebar{
+	width: 160px;
+	height: 40px;
+	background-color: #f7f5ed;
+	position: relative;
+	margin-left: 0px;
+	margin-bottom: 20px;
+
+
+}
+#utestedcontent{
+	width: 50%;
+	margin: 0 auto;
+}
+
+#utestedwrapper{
+	width: 100%;
+	height: 90%;
+	padding: 0px 0px 0px 0px;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 0px;
+	font-family: "Nirmala UI", helvetica, arial;
+	overflow: hidden;
+}
+.sidebarList li{
+    margin:15px 0px;
+}
+
+#sidebarLink{
+	color: black;
+	text-transform: none;
+	padding: 2px 2px 2px 2px;
+	margin-bottom: 14px;
+}
+.topleftborder{
+	float: left;
+	display: block;
+	width: 40%;
+	border-top: 1px solid #794788;
+	margin-top: 10px;
+}
+.toprightborder{
+	float: right;
+	width: 40%;
+	border-top: 1px solid #794788;
+	margin-top: 10px;
+}
+#sidebarLink:hover{
+	background-color: #eeead8 ;
+}
+.bordertop{
+	position: absolute;
+	border-top: 1px solid #794788;
+	width: 240px;
+	margin-left: 30px;
+	margin-bottom: 50px;
+}
+.bordertop2{
+	position: absolute;
+	border-top: 1px solid #794788;
+	width: 240px;
+	margin-left: 30px;
+	margin-bottom: 50px;
+}
+
+.dropdown{
+	position: relative;
+	display: inline-block;
+
+}
+#by{
+	padding: 0px;
+}
+.dropbtn{
+	background-color: #f7f5ed;
+	color: black;
+    font-size: 18px;
+    height: 32px;
+    width: 128px;
+	border: none;
+    text-align: center;
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	box-shadow: 5px 5px 5px -2px rgba(0,0,0,0.05);
+
+}
+.btnshadowShow{
+	box-shadow: inset 2px 2px 4px -2px rgba(0,0,0,0.05);
+	margin-left: 1px;
+}
+.dropbtn:hover,
+.dropbtn:focus{
+	background-color: #f7f5ed;
+}
+.followSidebar{
+    position: fixed;
+    top:80px;
+}
+.dropdownContent{
+	display: none;
+	position: relative;
+	background-color: #f7f5ed;
+	min-width: 160px;
+	text-align: center;
+	z-index: 1;
+	box-shadow: inset 2px 0px 4px -2px rgba(0,0,0,0.05);
+	margin-bottom: 20px;
+}
+.dropdownContent a{
+	color: black;
+	text-decoration: none;
+	display: block;
+	font-weight: 500;
+}
+#by{
+	width: 100%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	text-align: center;
+}
+ul{
+	margin: 0;
+	padding: 0;
+}
+.dropdownContent a:hover {
+	display: block;
+	background-color: #f1f1f1;
+}
+.show{display: block}
+
+#map {
+	width: 200px;
+	height: 200px;
+	margin-left: 30px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+}
+.utestedLeftSide{
+	text-align: left;
+	position: relative;
+	width: 45vw;
+	margin: 0 auto;
+}
+.ratingWrapper{
+	text-align: center;
+    font-weight: 100;
+    font-size: 16px;
+
+}
+h5{
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 30px;
+}
+h6{
+   	font-size: 16px;
+	font-weight: 100;
+	margin:0;
+	position: relative;
+}
+.input-textfield{
+    height: 80px;
+    width: 350px;
+    resize: none;
+    margin-left: 10px;
+    border: 5px solid #f7f5ed;
+    border-radius: 10px;
+	position: absolute;
+}
+.submitbuttonrating{
+    margin-top: 60px;
+    position: relative;
+    height: 30px;
+    width: 75px;
+    border: 3px solid #f7f5ed;
+    margin-left: 400px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-outline: none;;
+}
+.postreview{
+    margin-top: 50px;
+    float: left;
+}
+.utestederRightSide{
+	float: right;
+	text-align: center;
+	position: relative;
+	font-size: 15px;
+	overflow: hidden;
+	margin-right: 120px;
+	margin-top: 600px;
+
+
+}
+.borderdivleft{
+	position: absolute;
+	border-right: 1px solid #794788;
+	width: 1px;
+	float: left;
+	height: 95%;
+	top:8%;
+	margin-right: 300px;
+}
+.olpriser{
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+.headRightSide{
+	margin-bottom: 15px;
+	font-size: 20px;
+	margin-top: 10px;
+}
+.dayOpening{
+	font-size: 17px;
+}
+.utestedName{
+	margin-bottom: 70px;
+	font-weight: 200;
+}
+.utestedBody{
+	margin-bottom: 50px;
+}
+.mainImage{
+	margin: 0 auto;
+	width: 45vw;
+	height: 22vw;
+	object-fit: cover;
+}
+#listRightSide{
+	text-align: center;
+	top:0px;
+	padding-top: 15px;
+
+}
+.utested_bottom{
+	margin: 50px auto;
+	overflow: hidden;
+}
+.olprisborder{
+	height: 80%;
+	top:17%;
+}
+.borderkartbot{
+	width: 80%;
+	border-bottom: 1px solid #794788;
+	margin-left: 30px;
+	margin-top: 30px;
+}
+.kartborder{
+	height: 90%;
+	margin-top: 20px;
+	border-left: 1px solid #794788;
+	width: 1px;
+	float: left;
+}
+.kartwrapper{
+	padding-bottom: 15px;
+	height: 300px;
+}
+#by{
+	color: black;
+	text-transform: none;
+}
+#headol{
+	margin-top: 20px;
+}
+.smallrating{
+}
+.ratingsubhead{
+	margin-left: 90px;
+	margin-top: 20px;
+}
+.ratingsubheads{
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+	display: inline-flex;
+	position: absolute;
+
+}
+.atmosfaere{
+	margin-left: 32px;
+}
+.priser{
+	margin-left: 121px;
+}
+.dans{
+	margin-left: 132px;
+}
+#rateYo{
+	z-index: 1;
+	opacity: 0.99;
+}
+.rateYo1{
+	margin: 0 auto;
+}
+.smallstar{
+	display: inline-block !important;
+	margin-top: 75px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.rateYo2{
+	margin-left: 0;
+
+}
+.rateYo3{
+}
+.rateYo4{
+	margin-right: 0;
+}
+.overall{
+	margin-bottom: 15px;
+}
+
+.ratingHead{
+	font-size: 18px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: normal;
+	width: 100px;
+	margin: 0 auto;
+
+}
+.colorborder{
+	background-color:#f7f5ed;
+}
+.last_anmeldelser{
+	text-align: left;
+}
+.titlereview{
+	padding: 5px;
+	font-weight: bold;
+	font-size: 18px;
+}
+.authorreview{
+	font-size: 15px;
+	margin: 0;
+}
+.datereview{
+	font-size: 12px;
+	margin: 0;
+}
+.commentreview{
+	font-size: 15px;
+}
+.rateYo5{
+	padding-left: 0px !important;
+
+}
+.review_rating{
+	width: 26px;
+	float: left;
+	padding: 6px;
+}
+.comment{
+	width: 90%;
+	float: right;
+	padding-top: 15px;
+}
+.anmeldelse{
+	height: auto;
+	overflow: hidden;
+	margin: 10px 0;
+}
+.rateform{
+	overflow: hidden;
+	margin-top:9px;
+	width: 35px;
+	display: block;
+	padding: 0;
+	float: left;
+}
+
+.ratingnumberspan{
+	text-align: center;
+	margin: 0;
+	margin-bottom: 4px;
+	width: 24px;
+}
+#up-arrow{
+	cursor: pointer;
+}
+#down-arrow{
+	cursor: pointer;
+}
+
+.addcomment_text{
+    height: 200px;
+    width: 100%;
+    resize: none;
+    border: 1px solid #443266;
+    border-radius: 2px;
+}
+.addcomment_submit{
+    display: block;
+    height: 30px;
+    width: 15%;
+    margin: 20px auto;
+    border: 1px solid #443266;
+    background-color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    text-outline: none;
+	position: relative;
+	float: right;
+}
+.article_addcomment{
+    height: 270px;
+	margin: 0 auto;
+	margin-top: 50px;
+	display: none;
+
+}
+.addcomment_head{
+    margin-left: 25px;
+    position: relative;
+    display: inline-block;
+
+}
+.more_reviews_button{
+    height: 50px;
+    width: 200px;
+    background: white;
+    border:2px solid #443266;
+    border-radius: 2px;
+    margin: 60px auto;
+    cursor: pointer;
+    display: block;
+	font-size: 16px;
+}
+.comment_separator{
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px solid #794788;
+    opacity: 0.3;
+}
+.review_form{
+	margin-bottom: 50px;
+}
+.sidebarFixed{
+	position: fixed;
+	top:10vh;
+	height: 90vh;
+}

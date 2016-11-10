@@ -1,0 +1,15 @@
+{% extends 'hjem/base.html' %}
+
+{% block title %}Email sent{% endblock %}
+{% block content %}
+
+    <div class="logintextwrap">
+
+        <div class="loginwrapper">
+
+            <p>Mail er nå sendt til oppgitt e-post adresse. Følg instruksjonene i mailen for å resette passord.</p>
+            <p class="registertext">Ikke mottatt e-mail? <a class="registerlink link" href="{% url 'accounts.views.register' %}">Registrer deg nå</a></p>
+
+        </div>
+    </div>
+{% endblock %}

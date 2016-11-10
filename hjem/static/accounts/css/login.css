@@ -1,0 +1,140 @@
+.loginwrapper{
+    width:490px;
+    margin: 50px auto;
+    text-align: center;
+}
+.helptext{
+  display: none;
+}
+@media screen and (max-width: 1015px) {
+    body{
+        max-width: 100%;
+    }
+}
+
+.usernamelogin{
+    width: 450px;
+    height: 40px;
+    padding:6px 12px;
+    font-size: 20px;
+    margin: 10px;
+
+}
+.usernamelogin:focus{
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+.passwordlogin:focus{
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.passwordlogin{
+    width: 450px;
+    height: 40px;
+    padding:6px 12px;
+    margin: 10px;
+    font-size: 20px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+input[type="text"]{
+    width: 100%;
+}
+
+.leftborderhead{
+	position: relative;
+	width: 35%;
+	left: 0px;
+	top: 27px;
+	border-top: 1px solid #443266;
+    margin-left: 5%;
+}
+.loginhead{
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 52px;
+	text-transform: uppercase;
+	color: #000;
+	letter-spacing: 1px;
+	text-align: center;
+	margin: 0 auto;
+	position: relative;
+    width: 100px;
+}
+.rightborderhead{
+	position: relative;
+	width: 35%;
+	left:60%;
+	bottom: 24px;
+	border-top: 1px solid #443266;
+    margin-right: 5%;
+}
+
+.logintextwrap{
+    width: 1015px;
+    margin: 0px auto;
+    display: block;
+    max-width: 100%;
+    height:70%;
+
+}
+.remembermelabel{
+    height: 30px;
+    font-size: 18px;
+    margin-top: 10px;
+    float: left;
+}
+.forgotpasslink{
+    padding: 10px;
+}
+.checkboxclass{
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+    margin-top: 4px;
+}
+.remembermetexts{
+    position: absolute;
+    margin: auto 10px;
+}
+.submitbuttonlogin{
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    opacity: 0.7;
+    border-radius: 2px;
+    float: right;
+    margin: auto 0;
+    background-color: #FFFFFF;
+    border: 1px solid #443266;
+    cursor: pointer;
+}
+.submitbuttonlogin:hover{
+    opacity: 1;
+}
+.forgotpasslink{
+    width: 100%;
+    color: black;
+    text-transform: none;
+    text-align: center;
+
+}
+.registertext{
+    text-align: center;
+    margin: 10px;
+}
+.link{
+    color: #5f2373;
+}
+
+.registerlink{
+    text-transform: none;
+    text-align: center;
+    margin-top: 20px;
+}
+.forgotpasswrap{
+    width: 100%;
+    height: 100px;
+    margin-top: 80px;
+}
+input[type="text"]{
+    width: 450px;
+}

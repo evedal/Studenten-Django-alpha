@@ -1,0 +1,36 @@
+{% extends 'hjem/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+{% block head %}<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/login.css' %}" />{% endblock %}
+
+{% block content %}
+
+    <div class="logintextwrap">
+        <div class = "">
+            <div class = "leftborderhead"></div>
+            <h4 class="loginhead">Login</h4>
+            <div class = "rightborderhead"></div>
+        </div>
+        <div class="loginwrapper">
+
+            {% if error_message %}
+                <p class="error_message">{{ error_message }}</p>
+            {% endif %}
+
+            <form action="/accounts/auth/" method="post">
+                {% csrf_token %}
+                <input class="usernamelogin" id="{{ form.username.id_for_label }}" maxlength="30" name="username" placeholder="Brukernavn" type="text">
+                <input class="passwordlogin" id="{{ form.password.id_for_label }}" maxlength="128" name="password" placeholder="Passord" type="password">
+                <label class="remembermelabel"><input class="checkboxclass"name="remember_me" type="checkbox"><span class="remembermetexts">
+                    Husk meg</span></label>
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+                <input type="submit" class="submitbuttonlogin">
+
+            </form>
+            <div class="forgotpasswrap">
+                <a class ="forgotpasslink link" href="/accounts/password/reset/">Glemt brukernavn eller passord?</a>
+                <p class ="registertext">Har du ikke bruker? <a class ="registerlink link" href="/accounts/register/">Registrer deg</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

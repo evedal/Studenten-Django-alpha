@@ -1,0 +1,92 @@
+{% extends 'hjem/base.html' %}
+{% load static %}
+{% block title %}Blog page {{ page }}{% endblock %}
+{% block head %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/article.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/home.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'hjem/css/body.css' %}"/>
+    <script src="{% static 'blog/javascript/picture_hover.js' %}"></script>
+{% endblock head%}
+{% block header %}
+{% include 'hjem/header2.html' %}
+{% endblock %}
+{% block content %}
+
+    <div class="contentwrapper">
+        <div class="content_padding">
+            <div class="pictureCont">
+		        <img class="arrowleft" src="{% static "hjem/img/arrow.png" %}" alt="Left Arrow"/>
+		        <img class="arrowrigth" src="{% static "hjem/img/arrowright.png" %}" alt="Right Arrow"/>
+		        <ul class="pictureslide" id="pictureslide">
+                {% for article in articles.iterator %}
+                    <a href="{% url 'blog.views.article' article.pk %}" class="picturelink">
+                        <img class="mainPhoto" src="{{ article.image.url }}" alt="Article Name">
+                            <div class="picturetext">
+                                <h2 class="mainHead">{{ article.title }}</h2>
+                                <h6 class ="underHead">{{ article.description }}</h6>
+                            </div>
+                        </img>
+                    </a>
+                    {% endfor %}
+		        </ul>
+            </div>
+            <div class="article_wrap">
+                <div class="article_content">
+                    <div class="leftborderhead"></div>
+                    <h3 class="blog_sub_head">Articles</h3>
+                    <div class="rightborderhead"></div>
+                    <div class="blog_divider"></div>
+                    {% for article in all_articles.iterator %}
+                    <a href="{% url 'blog.views.article' article.pk %}"><div class="aricle_single">
+                        <img class="aricle_single_pic" src="{{ article.image.url }}">
+                        <h4 class="aricle_single_text">{{ article.title }}</h4>
+                        <p class="aricle_single_text">{{ article.description }}</p>
+                    </div>
+                    </a>
+                        <div class="article_separator"></div>
+                    {% endfor %}
+                </div>
+                <div class="next_page_cont">
+                    {% if prev_page > 0 %}
+                        <a href="/blog/{{ prev_page }}/"><button class="next_page_button">Forrige side</button></a>
+                    {% endif %}
+
+                    {% for p in pages %}
+                        {% if p == page %}
+                            <a href="/blog/{{ p }}/"><span class="next_page_numb, current_page">{{ p }}</span></a>
+                        {% else %}
+                            <a href="/blog/{{ p }}/"><span class="next_page_numb">{{ p }}</span></a>
+                        {% endif %}
+                    {% endfor %}
+                    {% if next_page > 0 %}
+                        <a href="/blog/{{ next_page }}/"><button class="next_page_button">Neste side</button></a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="sidebar_border">
+                <div class="article_sidebar">
+                    <div class="sidebar_popular">
+                        <!--<div class="pop_mainhead">
+                            <h4 class="pop_mainhead_text">Trending</h4>
+                        </div>-->
+                    {{ popular_articles.count }}
+                        {% for pop_article in popular_articles %}
+                            <div class="article_related_bg">
+                                <a href="/blog/article/{{ pop_article.pk }}">
+                                    <div class="popular_article{% if forloop.counter == 1 %} pop_article_first{% endif %}">
+                                        <h4 class="pop_article_numb">{{ forloop.counter }}</h4>
+                                        <img src="{{ pop_article.image.url }}" class="popular_picture"/>
+                                        <h5 class="pop_header">{{ pop_article.title }}</h5>
+                                    </div>
+
+                                </a>
+                            </div>
+                        {% endfor %}
+                        <div class="sidebar_border_bot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

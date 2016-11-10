@@ -1,0 +1,106 @@
+{% extends 'hjem/base.html' %}
+{% load static %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block head %}
+    <script>
+    $(document).ready(function () {
+        $.get('{% url 'blog.views.page_count' article.pk %}');
+    });
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/article.css' %}" />
+    <script src="{% static 'blog/javascript/picture_hover.js' %}"></script>
+{% endblock %}
+{% block header %}
+{% include 'hjem/header2.html' %}
+{% endblock %}
+{% block content %}
+
+    <div class="contentwrapper">
+        <div class="content_padding">
+        <h4 class="return_message">{{ return_message }}</h4>
+            <div class="content_picture">
+                <img src="{{ article.image.url }}" class="article_picture">
+                <div class="picture_text">
+                    <h1 class="picture_title">{{ article.title }}</h1>
+                    <div class="picture_text_separator"></div>
+                    <h3 class="picture_desc">{{ article.description }}</h3>
+                </div>
+            </div>
+            <div class="picture_footer">
+                <h5 class="picture_footer_text">by {{ article.author_id}} * {{ article.publishDate }}</h5>
+            </div>
+            <div class="article_wrap">
+                <div class="article_content">
+                    <div class="article_text">
+                        <p class="article_para">{{ article.body|linebreaks }}</p>
+                    </div>
+
+                </div>
+                <div class="leftborderhead related_width"></div>
+                <h4 class="blog_sub_head">Relaterte innlegg</h4>
+                <div class="rightborderhead related_width related_right"></div>
+                <div class="related_articles">
+                    {% for related_article in related_articles %}
+                        <a href="{% url 'blog.views.article' related_article.pk %}" class="related_article_link{% if forloop.counter == 1 %} article_related_left{% endif %}{% if forloop.counter == 3 %} article_related_right{% endif %}">
+                            <div class="article_related">
+                                    <img class="related_picture" src="{{ related_article.image.url }}"/>
+                                    <h5 class="related_title">{{ related_article.title }}</h5>
+
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+                <div class="article_comments">
+                    <div class="leftborderhead"></div>
+                    <h4 class="blog_sub_head">Kommentarer</h4>
+                    <div class="rightborderhead"></div>
+                    {% for comment in comments.iterator %}
+                    <div class="article_comment">
+                        <h3 class="comment_username">{{ comment.user.username }}</h3>
+                        <h5 class="comment_date">{{ comment.date }}</h5>
+                        <p class="comment_text">{{ comment.body|linebreaks }}</p>
+                        <div class="comment_separator"></div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="article_addcomment">
+                    <h4 class="addcomment_head">Legg igjen en kommentar</h4>
+                    <form action=""  method="post">
+                            {% csrf_token %}
+                        <textarea name="body" class="addcomment_text" id="id_comment" placeholder="Skriv en kommentar!"></textarea>
+                        <input class="addcomment_submit" type="submit" value="Post"/>
+                        {% if auth %}
+                            <p class="comment_help_text">Din kommentar vil bli publisert med brukernavnet {{ auth.username }}</p>
+                        {% else %}
+                            <p class="comment_help_text">Du må være logget inn for å legge igjen kommentar.<br><a href="{% url 'accounts.views.login' %}">Logg inn</a></p>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+            <div class="sidebar_border">
+                <div class="article_sidebar">
+                    <div class="sidebar_popular">
+                        <!--<div class="pop_mainhead">
+                            <h4 class="pop_mainhead_text">Trending</h4>
+                        </div>-->
+                        {% for pop_article in popular_articles.iterator %}
+                            <div class="article_related_bg">
+                                <a href="{% url 'blog.views.article' pop_article.pk %}">
+                                    <div class="popular_article{% if forloop.counter == 1 %} pop_article_first{% endif %}">
+                                        <h4 class="pop_article_numb">{{ forloop.counter }}</h4>
+                                        <img src="{{ pop_article.image.url }}" class="popular_picture"/>
+                                        <h5 class="pop_header">{{ pop_article.title }}</h5>
+                                    </div>
+
+                                </a>
+                            </div>
+                        {% endfor %}
+                        <div class="sidebar_border_bot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

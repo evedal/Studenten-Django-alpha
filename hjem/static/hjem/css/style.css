@@ -1,0 +1,140 @@
+.mainHead{
+	height:150px;
+	width: 100%;
+	min-width:1030px;
+	background-color: #5f2373;
+	font-family: "Nirmala UI", helvetica, arial;
+	position: absolute;
+}
+.overhead{
+	height: 50px;
+}
+#overhead{
+	position: absolute;
+}
+.headwrap{
+	width: 1015px;
+	text-align: center;
+	margin: 0px auto;
+}
+.header {
+	height: 50px;
+	text-shadow: 1px 1px black;
+	float: left;
+}
+a{
+	display: inline-block;
+ 	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: black;
+}
+p {
+	font-size: 12px;
+}
+.logo{
+	height: 100px;
+	width: 200px;
+	background-color: black;
+	float:left;
+}
+#logo{
+	display:none;
+}
+
+
+.navigation{
+	width: 1030px;
+	margin: 0px auto;
+	text-align: center;
+	color: #d0c9ca;
+}
+.navBut{
+	margin-left: 50px;
+	font-size: 18px;
+
+}
+#current{
+	border-bottom: solid 2px;
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.headerNav{
+	float: left;
+	margin-left: 300px; 
+	margin-top: 10px;
+
+
+}
+
+.navBut:hover{
+	color: #aeada9;
+
+}
+.wholehead{
+	height: 50px;
+	width: 200px;
+	margin-top: 0px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+}
+.underheader{
+	position: relative;
+	width: 100%;
+	height: 50px;
+	background: #f7f5ed;
+	color: black;
+}
+#underheader{
+	display: block;
+	position: absolute;
+	top: 50px;
+	transition: opacity 0.2s;
+}
+.underheadercontent{
+	text-align: center;
+	width: 1000px;
+	margin: auto;
+}
+.mediaskrift{
+	float: right;
+	color: black;
+	font-size: 17px;
+	text-shadow: none;
+	margin-top: 10px;
+	margin-right: 0px;
+}
+.icons{ 
+	float: right;
+
+	
+}
+.icon{
+	margin-top: 5px;
+	margin-left: 40px;
+	color: black;
+	max-width:100%;
+	max-height:100%;
+}
+.icon:hover{
+	margin-top: 0px;
+	margin-left: 35px;
+	color: black;
+}
+
+.socialMed{
+	heigth: 35px;
+	width: 35px;
+
+}
+.socialMed:hover{
+	heigth: 40px;
+	width: 40px;
+}
+
+.content{
+	height: 2000px;
+}
+.text{
+	margin-top: 1500px;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Studenten - {% block title %}{% endblock %}</title>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'hjem/css/header2.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'hjem/css/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'utesteder/css/jquery.rateyo.min.css' %}">
+<link rel="icon" type="image/png" href="{% static 'hjem/img/studenten-logo.ico' %}"/>
+<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="{% static 'hjem/javascript/headerFollow.js' %}"></script>
+    <script src="{% static 'hjem/javascript/pictureSlide.js' %}"></script>
+    <script src="{% static 'hjem/javascript/currenturl.js' %}"></script>
+    <script src="{% static 'hjem/javascript/animations.js' %}"></script>
+
+    <meta name = "viewport" width = "device-width">
+
+{% block head %}{% endblock %}
+
+
+</head>
+<body>
+{% include 'hjem/header2.html' %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'hjem/footer.html' %}
+</body>
+
+
+</html>

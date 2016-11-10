@@ -1,0 +1,312 @@
+{% extends "hjem/base.html" %}
+{% load static %}
+{% block title %}{{ utested.name }}{% endblock %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'utesteder/css/sidebar.css' %}" />
+    <script src="{% static 'utesteder/javascript/utesteder.js' %}"></script>
+    <script src="http://rateyo.fundoocode.ninja/bower_components/jquery-rateyo/min/jquery.rateyo.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://rateyo.fundoocode.ninja/bower_components/jquery-rateyo/min/jquery.rateyo.min.css" />
+    <script>
+        $(document).ready(function () {
+            var location = document.location + '';
+            var review_amount = /\/utesteder\/\d{1,4}\/\d{1,4}/.exec(location);
+            if(review_amount != null){
+                {% if anmeldelser.count|add:"-10" > 0 %}
+                    $('html, body').animate({
+                        scrollTop: $(".rateYoReview{{ anmeldelser.count|add:"-10" }}").offset().top
+                    }, 1500);
+
+                {% else %}
+                    $('html, body').animate({
+                        scrollTop: $(".rateYoReview1").offset().top
+                    }, 1500);
+                {% endif %}
+            }
+
+            var ratingH = "{{ utested.hScore }}";
+            var ratingA = "{{ utested.aScore }}";
+            var ratingP = "{{ utested.pScore }}";
+            var ratingD = "{{ utested.dScore }}";
+
+            $(".rateYo1").rateYo({
+                rating: ratingH,
+                fullStar: false,
+                ratedFill: "#794788",
+                normalFill: "#f2eee0",
+                onSet: function () {
+                    var rating = $(this).rateYo("rating");
+                    $('#id_hScore').attr('value', rating);
+                    $('.article_addcomment').toggle();
+                }
+            });
+            $(".rateYo2").rateYo({
+                rating: ratingA,
+                fullStar: false,
+                starWidth: "25px",
+                ratedFill: "#794788",
+                normalFill: "#f2eee0",
+                onSet: function () {
+                    var rating = $(this).rateYo("rating");
+                    $('#id_aScore').attr('value', rating);
+                }
+            });
+            $(".rateYo3").rateYo({
+                rating: ratingP,
+                fullStar: false,
+                ratedFill: "#794788",
+                starWidth: "25px",
+                normalFill: "#f2eee0",
+                onSet: function () {
+                    var rating = $(this).rateYo("rating");
+                    $('#id_pScore').attr('value', rating);
+                }
+            });
+            $(".rateYo4").rateYo({
+                rating: ratingD,
+                fullStar: false,
+                ratedFill: "#794788",
+                starWidth: "25px",
+                normalFill: "#f2eee0",
+                onSet: function () {
+                    var rating = $(this).rateYo("rating");
+                    $('#id_dScore').attr('value', rating);
+                }
+            });
+            {% for anmeldelse in anmeldelser.iterator %}
+                $(".rateYoReview{{ forloop.counter }}").rateYo({
+                        rating: {{ anmeldelse.hScore }},
+                        fullStar: true,
+                        ratedFill: "#794788",
+                        starWidth: "15px",
+                        normalFill: "#f2eee0",
+                        readOnly: true
+                    });
+            {% endfor %}
+
+
+            $(".rateYo1, .rateYo2, .rateYo3, .rateYo4").hover(function () {
+                $(this).rateYo("option", "fullStar", true)
+
+            }, function () {
+                $(this).rateYo("option", "fullStar", false)
+            });
+
+
+            function dropdown() {
+                document.getElementById("dropdownId").classList.toggle("show");
+                document.getElementById("dropbtnId").classList.toggle("btnshadowShow");
+            }
+
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn') && $('.dropdownContent').hasClass('show')) {
+                    $('.dropdownContent').removeClass('show');
+                    $('.dropbtn').removeClass('btnshadowShow');
+                }
+            }
+
+            $(".more_reviews_button").click(function () {
+                var location = document.location + '';
+                var review_amount = /\/utesteder\/\d{1,4}\/\d{1,4}/.exec(location);
+                if(review_amount == null){
+                    review_amount = 0
+                }
+                else{
+                    review_amount = review_amount.toString().split("/")[3];
+                }
+                location = /.*?\/utesteder\/[0-9]{1,4}\//.exec(location);
+                review_amount = parseInt(review_amount) + 10; //10 new reviews
+                window.location.replace(location + review_amount);
+            });
+
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+
+<div id="utestedwrapper" class="pageCont">
+	<div class="sidebar">
+        <div class="borderdiv"></div>
+
+        <div class="categorySidebar dropdown">
+            <button id="dropbtnId" class = "dropbtn" onclick="dropdown()">Byer</button>
+            <div id = "dropdownId" class = "dropdownContent">
+                {% for byen in byer.iterator %}
+                <ul>
+                    <a href="#" id="by">{{ byen.name }}</a>
+                </ul>
+                {% endfor %}
+            </div>
+        </div>
+        <ul id = "sidebarUtesteder" class = "sidebarList">
+            {% for sted in utesteder.iterator %}
+                {% if sted.pk == utested.pk %}
+                    <li><a class = "utestedNav colorborder" id = "sidebarLink" href="/utesteder/{{ sted.id }}/">{{ sted.name }}</a></li>
+                {% else %}
+                    <li><a class = "utestedNav" id = "sidebarLink" href="/utesteder/{{ sted.id }}/">{{ sted.name }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+	</div>
+
+               <div class = "utestederRightSide">
+                    <div class = "bordertop"></div>
+                    <ul id = "listRightSide">
+                        <div class="borderdivleft "></div>
+                        <h6 class = "headRightSide">Åpningstider</h6>
+                        <h7 class="dayOpening">{{ apningstider.0 }}</h7>
+                        <p>{{ apningstider.1 }}</p>
+                        <h7 class="dayOpening">{{ apningstider.2 }}</h7>
+                        <p>{{ apningstider.3 }}</p>
+                        <h7 class="dayOpening">{{ apningstider.4 }}</h7>
+                        <p>{{ apningstider.5 }}</p>
+                    </ul>
+                    <ul id = "listRightSide" class = "olpriser">
+                        <div class="bordertop2"></div>
+                        <div class="borderdivleft olprisborder"></div>
+                        <h6 class = "headRightSide" id="headol">Ølpriser</h6>
+                        <p>{{ priser.0 }}</p>
+                        <p>{{ priser.1 }}</p>
+                        <p>{{ priser.2 }}</p>
+                    </ul>
+                    <div id="listRightSide" class="kartwrapper">
+                        <div class="bordertop2"></div>
+                        <div class="kartborder"></div>
+                        <h6 class="headRightSide" id="headol">Kart</h6>
+                        <div id="map"></div>
+                        <script>
+                        function initMap() {
+                            var geocoder = new google.maps.Geocoder();
+                            var address = "{{ utested.adresse }}";
+
+                            geocoder.geocode( { 'address': address}, function(results, status) {
+
+                                if (status == google.maps.GeocoderStatus.OK) {
+                                    var latitude = results[0].geometry.location.lat();
+                                    var longitude = results[0].geometry.location.lng();
+                                    var mapDiv = document.getElementById('map');
+                                    var map = new google.maps.Map(mapDiv, {
+                                        center: {lat: latitude, lng: longitude},
+                                        zoom: 14,
+                                        scrollwheel: false
+                                    });
+
+                                }
+                                marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng(latitude,longitude),
+                                    map: map
+                                });
+                            });
+                        }
+                        </script>
+                        <script async defer
+                            src="https://maps.googleapis.com/maps/api/js?key= AIzaSyAsyhnJAvvwV5YA0JN8D0tKLFiYy2-ZKSk&callback=initMap">
+                        </script>
+                        <div class="borderkartbot"></div>
+                    </div>
+
+    </div>
+    <div id="utestedcontent">
+        <h1 class="utestedName">
+            {{ utested.name }}
+        </h1>
+
+        <img class = "mainImage" src ="{{ utested.image.url }}" alt = "Main Picture">
+        <div class="utested_bottom">
+            <div class = "utestedLeftSide">
+                <div class = "utestedBody">
+                    {{ utested.body|linebreaks  }}
+                </div>
+                <div class = ratingWrapper>
+                    <div class = "topleftborder"></div>
+                    <div class = "toprightborder"></div>
+
+                    <h3 class="ratingHead">Rating</h3>
+
+                        {% if error_message or success_message %}
+                        <script type="text/javascript">
+                            $(document).ready(function (){
+                                $('html, body').animate({
+                                    scrollTop: $("#headol").offset().top
+                                }, 500, false);
+                            })
+                        </script>
+                        {% endif %}
+                        {% if error_message %}
+                            <p style="color: red;"><strong>{{ error_message }}</strong></p>
+                            <script type="text/javascript">$(document).ready(scrolldown())</script>
+                        {% endif %}
+                        {% if success_message %}
+                            <p ><strong>{{ success_message }}</strong></p>
+
+                        {% endif %}
+                        <form class="review_form"action="{% url 'utesteder.views.utested' utested.pk %}" method="post">
+                            {% csrf_token %}
+
+                            <label for="hScore">
+                                <h5 class="overall">Overall</h5>
+                                    <div id="rateYo" class="jq-ry-container rateYo1"></div>
+                                <input type="hidden" id="id_hScore" name="hScore" value="0">
+                            </label>
+                            <label for="aScore pScore dScore">
+                                <div class="smallrating">
+                                    <div class="ratingsubheads">
+                                        <h6 class="ratingsubhead atmosfaere">Atmosfære</h6>
+                                        <h6 class="ratingsubhead priser">Priser</h6>
+                                        <h6 class="ratingsubhead dans">Dansing</h6>
+                                    </div>
+                                    <div id="rateYo" class="jq-ry-container rateYo2 smallstar"></div>
+                                    <div id="rateYo" class="jq-ry-container rateYo3 smallstar"></div>
+                                    <div id="rateYo" class="jq-ry-container rateYo4 smallstar"></div>
+                                    <input type="hidden" id="id_aScore" name="aScore" value="">
+                                    <input type="hidden" id="id_pScore" name="pScore" value="">
+                                    <input type="hidden" id="id_dScore" name="dScore" value="">
+                                </div>
+                            </label>
+                            <div class="article_addcomment">
+                                <textarea name="comment" class="addcomment_text" id="{{ form.comment.id_for_label }}" placeholder="Legg ved en kommentar..."></textarea>
+                                <input class="addcomment_submit" type="submit" value="Post"/>
+                                {% if not auth %}
+                                    <p class="comment_help_text">Du må være logget inn for å legge igjen kommentar.<br> <em><a href="{% url 'accounts.views.login' %}?next={{ request.path }}">Logg inn</a></em></p>
+                                {% else %}
+                                    <p class="comment_help_text">Navnet som vises i anmeldelsen er <em>{{ auth.username }}</em></p>
+                                {% endif %}
+                            </div>
+                        </form>
+                        <div class="last_anmeldelser">
+                            {% for anmeldelse in anmeldelser.iterator %}
+                                <div class="comment_separator"></div>
+                                <div class="anmeldelse" dataid = "{{ anmeldelse.pk }}">
+                                    <form action="." method="post" class="rateform">
+                                        <div class="review_rating">
+                                            {% if auth.is_authenticated %}
+                                                <span class="glyphicons glyphicons-arrow-up"></span>
+                                                <img class = "up-arrow" name="up" src="{% static 'utesteder/svg/up-arrow.svg' %}">
+                                                <p class="ratingnumberspan">{{ anmeldelse.review_rating }}</p>
+                                                <img class = "down-arrow" src="{% static 'utesteder/svg/down-arrow.svg' %}">
+                                            {% else %}
+                                                <img class = "up-arrow" name="up" style="cursor: default" src="{% static 'utesteder/svg/up-arrow.svg' %}">
+                                                <p class="ratingnumberspan">{{ anmeldelse.review_rating }}</p>
+                                                <img class = "down-arrow" style="cursor: default" src="{% static 'utesteder/svg/down-arrow.svg' %}">
+                                            {% endif %}
+                                        </div>
+                                    </form>
+                                    <div class="comment">
+                                        <div id="rateYo" class=" rateYo5 jq-ry-container rateYoReview{{ forloop.counter }}"></div>
+                                        <p class="authorreview">Author: {{ anmeldelse.author }}</p>
+                                        <p class="datereview">{{ anmeldelse.date }}</p>
+
+                                        <p class="commentreview">{{ anmeldelse.comment|linebreaks}}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div class="comment_separator"></div>
+                            <button class="more_reviews_button" >Vis flere anmeldelser</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+{% endblock %}

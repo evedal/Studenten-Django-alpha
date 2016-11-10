@@ -1,0 +1,41 @@
+{% load staticfiles %}
+{% block header %}
+<header>
+	<div class="overhead headwrap"id="overhead">
+		<div class="overheadwrap">
+			<img class="logo" src="{% static "hjem/img/logo.png" %}"></img>
+			<div class="logohjelp"></div>
+		</div>	
+	</div>
+	<div class = "headnav headwrap" id="headnav">
+		<div class="navwrap">
+			<nav class="navtext">
+				<a class="navbut" id="current" href="/hjem">Hjem</a>
+				<a class="navbut" href="/utesteder">Utesteder</a>
+		 		<a class="navbut" href="/blog">Blog</a>
+				<a class="navbut" href="/omoss">Om Oss</a>
+			</nav>
+			<div class="navlogincont">
+				<a class="logintext" href="/accounts/">Logg inn!</a>
+				<div class="logincontainer">
+				 	<form action="demo_form.asp" class="namepass">
+ 						<input class="inputbox textfield"type="email" name="username" placeholder="Brukernavn"><br>
+						<input class = "inputbox textfield"type="password" name="password" placeholder="Passord"><br>
+						<input class="rememberme inputbox" type="checkbox" name="husk meg"><span class="remembermetext">Husk meg</span><br>
+ 						<input class="submitbutton inputbox"type="submit" value="Logg inn">
+					</form> 
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div class="underheader headwrap" id="underheader">
+		<div class="underheadercontent">
+			<nav class="icons">
+				<a  href="facebook.com"><img class="socialMed icon" src="{% static "hjem/img/facebook.png" %}" alt="Facebook"/></a>
+				<a  href=""><img class="socialMed icon" src="{% static "hjem/img/twitter.png" %}" alt="Twitter"/></a>
+				<a  href=""><img class="socialMed icon" src="{% static "hjem/img/instagram.png" %}" alt="Instagram"/></a>
+			</nav>	
+			<p class="mediaskrift">Folg oss!</p>		
+		</div>	
+	</div>
+</header>

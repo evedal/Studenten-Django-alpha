@@ -1,0 +1,35 @@
+.coaster_wrapper{
+    width: 100%;
+    height: 500px;
+}
+.arrowleft{
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+}
+.arrowrigth{
+    right:0;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin: auto;
+}
+.coaster_sllder{
+    height: 100%;
+    width: ;
+}
+.slider_photo{
+    height: 100%;
+    width: calc(100% * 4);
+}
+.slider_link{
+    width: 100%;
+    height: 100%;
+}
+.slider_content{
+    height: 100%;
+    width: calc(100% / 4);
+    display: inline-block;
+}

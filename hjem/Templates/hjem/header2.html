@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<header>
+    <div class="headerwrap">
+        <div class="overheadwrap header">
+            <img class="logo" src="{% static "hjem/img/logo.png" %}"></img>
+            <div class="logohjelp"></div>
+        </div>
+        <div id="headscroll" class="headscroll">
+            <div class = "headwrap header" id="headnav">
+                <nav class="navtext">
+                    <a class="navbut hjem" href="/hjem">Hjem</a>
+                    <a class="navbut utested" href="/utesteder">Utesteder</a>
+                    <a class="navbut blog" href="/blog/1">Blog</a>
+                 <!--   <a class="navbut omoss" href="/omoss">Om Oss</a> -->
+
+                    {% if auth %}
+                        <a class="logintext navbut" href="/accounts/profile">Hei {{ auth.first_name }}!</a>
+                    {% else %}
+                        <a class="logintext navbut" href="/accounts/">Logg inn!</a>
+                    {% endif %}
+
+                </nav>
+            </div>
+        </div>
+        <div class="underheadbg">
+            <div class="underheadwrap header">
+                <nav class="icons">
+                    <p class="mediaskrift">Folg oss!</p>
+                    <a  href="facebook.com"><img class="socialMed icon" src="{% static "hjem/img/facebook.png" %}" alt="Facebook"/></a>
+                    <a  href=""><img class="socialMed icon" src="{% static "hjem/img/twitter.png" %}" alt="Twitter"/></a>
+                    <a  href=""><img class="socialMed icon" src="{% static "hjem/img/instagram.png" %}" alt="Instagram"/></a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,31 @@
+{% extends 'hjem/base.html' %}
+{% load static %}
+{% block title %}Forgot{% endblock %}
+{% block head %}<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/forgot.css' %}" />{% endblock %}
+
+{% block content %}
+
+    <div class="logintextwrap">
+        <div class = "">
+            <div class = "leftborderhead"></div>
+            <h4 class="loginhead">Glemt</h4>
+            <div class = "rightborderhead"></div>
+        </div>
+        <div class="loginwrapper">
+
+            {% if form.errors %}
+                <p class="error_message">{{ form.errors }}</p>
+            {% endif %}
+
+            <form action="/accounts/password/done/" method="post">
+                {% csrf_token %}
+                <div class="registerwrap">
+                    <input  id="{{ form.email.id_for_label }}" class="registerinput" placeholder="Mail" title="Skriv inn mailen du registrerte deg med">
+                    <input type="submit" class="submitbutton submitregister submitmargin">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

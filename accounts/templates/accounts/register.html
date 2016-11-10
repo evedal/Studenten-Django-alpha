@@ -1,0 +1,35 @@
+{% extends 'hjem/base.html' %}
+{% load static %}
+{% block title %}Register{% endblock %}
+{% block head %}<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/register.css' %}" />{% endblock %}
+{% block content %}
+
+    <div class="logintextwrap">
+        <div class = "">
+            <div class = "leftborderhead"></div>
+            <h4 class="loginhead">Registrer</h4>
+            <div class = "rightborderhead"></div>
+        </div>
+        <div class="loginwrapper">
+
+            {% if error_message %}
+                <p class="error_message">{{ error_message }}</p>
+            {% endif %}
+
+            <form action="/accounts/register/" method="post">
+                {% csrf_token %}
+                <div class="registerwrap">
+                    <input required="required" name="email" id="{{ form.email.id_for_label }}" type="email" class="registerinput" placeholder="Email">
+                    <input required="required" name ="first_name" type = "username"id="{{ form.first_name.id_for_label }}" class="registerinput" placeholder="Fornavn">
+                    <input required="required" name ="last_name" id="{{ form.last_name.id_for_label }}" class="registerinput" placeholder="Etternavn">
+                    <input required="required" name = "username" id="{{ form.username.id_for_label }}" class="registerinput" placeholder="Brukernavn">
+                    <input required="required" name = "password1" type="password" id="{{ form.password1.id_for_label }}" class="registerinput" placeholder="Passord">
+                    <input required="required" name = "password2" type="password" id="{{ form.password2.id_for_label }}" class="registerinput" placeholder="Gjenta passord">
+                    <input type="submit", class="submitbutton submitregister">
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}
