@@ -1,12 +1,10 @@
 beautifulsoup4==4.3.2
 cffi==0.8.6
-cryptography==0.7.2
 cssselect==0.9.1
 decorator==4.0.10
 Django==1.7.5
 django-hitcount==1.2.2
 django-taggit==0.21.2
-matplotlib==1.4.3
 numpy==1.9.1
 oauthlib==0.7.2
 pattern==2.6
@@ -14,7 +12,6 @@ Pillow==3.0.0
 praw==3.5.0
 pyasn1==0.1.7
 pycparser==2.10
-pyHook==1.5.1
 pyOpenSSL==0.14
 pyparsing==2.0.3
 python-dateutil==2.4.0
