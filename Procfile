@@ -1,0 +1,1 @@
+web: gunicorn Studenten-Django.wsgi --log-file -
