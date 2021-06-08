@@ -8,7 +8,7 @@ django-taggit==0.21.2
 gunicorn==19.6.0
 numpy==1.9.1
 oauthlib==0.7.2
-Pillow==3.0.0
+Pillow==8.2.0
 praw==3.5.0
 pyasn1==0.1.7
 pycparser==2.10
