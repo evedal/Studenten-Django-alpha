@@ -6,7 +6,7 @@ Django==1.10.3
 django-hitcount==1.2.2
 django-taggit==0.21.2
 gunicorn==19.6.0
-numpy==1.9.1
+numpy==1.22.0
 oauthlib==0.7.2
 Pillow==3.0.0
 praw==3.5.0
